@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import dictonary from './dictonary_07-2019.json'
 import './App.css';
 
 function App() {
+  const words = Object.entries(dictonary.cards)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>
+        Name: {dictonary.name}
+      </h1>
+      <>
+      <div class="words-list">
+        {
+          words.map(tile => (
+            <div key={tile[1].o} className="tile">
+              {tile[1].o}
+            </div>
+          ))
+        }
+      </div>
+      </>
     </div>
   );
 }
