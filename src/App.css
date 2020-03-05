@@ -1,17 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
 .app {
   font-size: 18px;
 }
 
+.page {
+  padding: 1px;
+  page-break-after: always;
+}
+
 .words-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(8, minmax(130px, 1fr));
+  justify-items: center;
+  align-items: center;
 }
 
 .tile {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 0 0 15%;
-  padding: 50px 30px;
+  padding: 5%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
   border: 1px solid black;
+  text-align: center;
+  overflow-wrap: break-word;
 }

@@ -1,26 +1,26 @@
-import React from 'react';
-import dictonary from './dictonary_07-2019.json'
-import './App.css';
+import React from "react";
+import { generateWordListFromRememberry } from "./utils";
+import dictonary from "./dictonary_07-2019.json";
+import "./App.css";
 
 function App() {
-  const words = Object.entries(dictonary.cards)
+  const words = Object.entries(dictonary.cards);
+
+  const pages = generateWordListFromRememberry(words);
 
   return (
     <div className="app">
-      <h1>
-        Name: {dictonary.name}
-      </h1>
-      <>
-      <div class="words-list">
-        {
-          words.map(tile => (
-            <div key={tile[1].o} className="tile">
-              {tile[1].o}
-            </div>
-          ))
-        }
-      </div>
-      </>
+      {pages.map((wordList, index) => (
+        <div key={index} className="page">
+          <div className="words-list">
+            {wordList.map((word, index) => (
+              <div className="tile" key={index}>
+                <span>{word}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
